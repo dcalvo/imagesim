@@ -55,7 +55,7 @@ def nearest(
     with ImageEmbedder.create_from_options(options) as embedder:
         mp_target = mp.Image(image_format=mp.ImageFormat.SRGB, data=target)
         embedded_image = embedder.embed(mp_target)
-        nearest_similarity = 0
+        nearest_similarity = float("-inf")
         nearest_neighbor = None
         similarities = []
 

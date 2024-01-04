@@ -26,13 +26,9 @@ async def embed_image(
         img = np.array(Image.open(BytesIO(data)))
     except Exception as e:
         print(e)
-        raise HTTPException(status_code=500, detail="failed to read image")
+        raise HTTPException(status_code=500, detail="failed to read image") from e
 
-    try:
-        embedding = embed(img)
-    except Exception as e:
-        print(e)
-        raise HTTPException(status_code=500, detail="failed to embed image")
+    embedding = embed(img)
 
     return EmbedImageResponse(embedding=embedding)
 
@@ -54,15 +50,11 @@ async def get_nearest_neighbor(
         neighbors_img = [np.array(Image.open(BytesIO(data))) for data in neighbors_data]
     except Exception as e:
         print(e)
-        raise HTTPException(status_code=500, detail="failed to read image")
+        raise HTTPException(status_code=500, detail="failed to read image") from e
 
-    try:
-        nearest_neighbor, nearest_similarity, similarities = nearest(
-            target_img, neighbors_img
-        )
-    except Exception as e:
-        print(e)
-        raise HTTPException(status_code=500, detail="failed to get nearest neighbor")
+    nearest_neighbor, nearest_similarity, similarities = nearest(
+        target_img, neighbors_img
+    )
 
     return NearestNeighorResponse(
         nearest_neighbor=nearest_neighbor,
