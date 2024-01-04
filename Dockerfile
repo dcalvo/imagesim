@@ -1,8 +1,7 @@
 # syntax=docker/dockerfile:1
 # Keep this syntax directive! It's used to enable Docker BuildKit
 
-# Based on https://github.com/python-poetry/poetry/discussions/1879?sort=top#discussioncomment-216865
-# but I try to keep it updated (see history)
+# Based on https://gist.github.com/usr-ein/c42d98abca3cb4632ab0c2c6aff8c88a
 
 ################################
 # PYTHON-BASE
