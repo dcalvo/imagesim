@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "imagesim"
+version = "0.1.0"
+description = "A microservice for embedding images and finding nearest neighbors."
+authors = ["David Calvo <david@dcalvo.io>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+mediapipe = "^0.10.9"
+fastapi = "^0.108.0"
+uvicorn = "^0.25.0"
+gunicorn = "^21.2.0"
+numpy = "^1.26.3"
+python-multipart = "^0.0.6"
+opencv-python-headless = "^4.9.0.80"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.12.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
